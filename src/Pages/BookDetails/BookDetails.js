@@ -3,18 +3,25 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { API_BOOK, API_SAVE_BOOK } from "../../config";
-import DescSection from "./DescSection";
-import FinishBook from "./FinishBook";
-import CommentSection from "./CommentSection";
-import IntroSection from "./IntroSection";
-import Aside from "./Aside";
-import Book from "./Components/Book";
+import {
+  API_BOOK,
+  API_SAVE_BOOK,
+  CLOSE_BTN,
+  BANNER,
+  IDEX_ICON,
+} from "../../config";
+import { Book, Viewer } from "./Components";
+import {
+  Aside,
+  IntroSection,
+  CommentSection,
+  FinishBook,
+  DescSection,
+} from "../BookDetails";
 import Nav from "../../Components/Nav/Nav";
-import Viewer from "../BookDetails/Components/Viewer";
 
 function BookDetails(props) {
-  const [data, setData] = useState([]);
+  const [bookDetailData, setBookDetailData] = useState([]);
   const [comments, setComments] = useState([]);
   const [isOpened, setIsOpened] = useState(false);
   const [isSaved, setIsSaved] = useState();
@@ -30,7 +37,7 @@ function BookDetails(props) {
         Authorization: localStorage.getItem("Authorization"),
       },
       body: JSON.stringify({
-        book_id: data.book_id,
+        book_id: bookDetailData.book_id,
       }),
     }).then((response) => {
       setIsSaved(response.status === 201);
@@ -54,7 +61,7 @@ function BookDetails(props) {
     })
       .then((res) => res.json())
       .then((res) => {
-        setData(res.MESSAGE);
+        setBookDetailData(res.MESSAGE);
         setIsSaved(res.savebutton);
         window.scrollTo(0, 0);
       });
@@ -90,36 +97,33 @@ function BookDetails(props) {
     <>
       <Nav />
       <Main>
-        <article>
-          <DescSection comments={comments} data={data} />
+        <Article>
+          <DescSection comments={comments} data={bookDetailData} />
           <BestSection>
             <h1>에세이 분야 주간 베스트 도서</h1>
           </BestSection>
-          <FinishBook data={data} />
-          <IntroSection data={data} />
+          <FinishBook data={bookDetailData} />
+          <IntroSection data={bookDetailData} />
           <ContentSection isOpened={isOpened}>
             <div>
               <h1>목차</h1>
               <img
                 onClick={() => setIsOpened(!isOpened)}
                 alt="indexIcon"
-                src="https://cdn2.iconfinder.com/data/icons/essential-web-4/50/angle-down-arrow-direction-bottom-512.png"
+                src={IDEX_ICON}
               />
             </div>
-            <ContentsContainer>{data.contents}</ContentsContainer>
+            <ContentsContainer>{bookDetailData.contents}</ContentsContainer>
           </ContentSection>
           <CommentSection
             moreBtnColor={moreBtnColor}
             setMoreBtnColor={setMoreBtnColor}
-            data={data}
+            data={bookDetailData}
             comments={comments}
             setComments={setComments}
           />
           <Banner>
-            <img
-              alt="banner"
-              src="https://i.ibb.co/1mS3GRC/2020-11-05-1-38-33.png"
-            />
+            <img alt="banner" src={BANNER} />
           </Banner>
           <RecommendBookContainer>
             <h1>다른 회원들이 함께 담은 책</h1>
@@ -134,7 +138,7 @@ function BookDetails(props) {
               ))}
             </Slider>
           </RecommendBookContainer>
-        </article>
+        </Article>
         <Aside
           setIsActiveReadNow={setIsActiveReadNow}
           isActiveReadNow={isActiveReadNow}
@@ -145,13 +149,10 @@ function BookDetails(props) {
         <Modal isSaved={isSaved} isActiveModal={isActiveModal}>
           {isSaved ? "내 서재에 담겼습니다" : "담기 취소되었습니다"}
         </Modal>
-        <Viewer data={data} isActiveReadNow={isActiveReadNow} />
+        <Viewer data={bookDetailData} isActiveReadNow={isActiveReadNow} />
         <ViewerBackground isActiveReadNow={isActiveReadNow}>
           <CloseBook onClick={() => setIsActiveReadNow(!isActiveReadNow)}>
-            <img
-              alt="closeBtn"
-              src="https://cdn2.iconfinder.com/data/icons/navigation-set-arrows-part-two/32/Cancel-512.png"
-            />
+            <img alt="closeBtn" src={CLOSE_BTN} />
           </CloseBook>
         </ViewerBackground>
       </Main>
@@ -165,12 +166,12 @@ const Main = styled.div`
   display: flex;
   width: 1280px;
   margin: 0 auto;
+`;
 
-  article {
-    margin-top: 64px;
-    width: 998px;
-    border-left: 1px solid rgb(223, 223, 223);
-  }
+const Article = styled.div`
+  margin-top: 64px;
+  width: 998px;
+  border-left: 1px solid rgb(223, 223, 223);
 `;
 
 const BestSection = styled.section`

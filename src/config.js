@@ -35,3 +35,11 @@ export const VALIDATE_SOCIAL_LOGIN_API =
   "http://10.58.7.192:8000/user/login/social";
 export const VALIDATE_SOCIAL_SIGNUP_API =
   "http://10.58.7.192:8000/user/signup/social";
+
+export const CLOSE_BTN =
+  "https://cdn2.iconfinder.com/data/icons/navigation-set-arrows-part-two/32/Cancel-512.png";
+
+export const BANNER = "https://i.ibb.co/1mS3GRC/2020-11-05-1-38-33.png";
+
+export const IDEX_ICON =
+  "https://cdn2.iconfinder.com/data/icons/essential-web-4/50/angle-down-arrow-direction-bottom-512.png";

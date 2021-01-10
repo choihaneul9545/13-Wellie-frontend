@@ -115,7 +115,7 @@ function CommentSection({
       <CommentResister>
         <img
           src="https://secure.gravatar.com/avatar/64c49b6f852ad598fd9f6ad571a663a8?s=1024&d=mm&r=g"
-          alt=""
+          alt="avatar_icon"
         />
         <div>
           <input

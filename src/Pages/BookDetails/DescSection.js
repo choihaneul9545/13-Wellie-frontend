@@ -3,7 +3,7 @@ import styled from "styled-components";
 function DescSection({ data, comments }) {
   return (
     <Container data={data}>
-      <Book alt="" src={data.image_url} />
+      <Book alt="image" src={data.image_url} />
       <div className="container">
         <BookDesc>
           <p>{data.title}</p>
@@ -14,7 +14,7 @@ function DescSection({ data, comments }) {
           <InfoBox>
             <img
               src="https://secure.gravatar.com/avatar/64c49b6f852ad598fd9f6ad571a663a8?s=1024&d=mm&r=g"
-              alt=""
+              alt="avatar_icon"
             />
             <p>함께 읽는 사람</p>
             <p>5,724명</p>
@@ -22,7 +22,7 @@ function DescSection({ data, comments }) {
           <div></div>
           <InfoBox>
             <img
-              alt=""
+              alt="comment_icon"
               src="https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Comments-256.png"
             />
             <p>한 줄 리뷰</p>

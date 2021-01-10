@@ -4,19 +4,21 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./Styles/GlobalStyle";
 import { theme } from "./Styles/Theme";
 import Nav from "./Components/Nav/Nav";
-import WellieMain from "./Pages/WellieMain/WellieMain";
-import Login from "./Pages/Login/Login";
-import Signup from "./Pages/Signup/Signup";
-import PhoneValidate from "./Pages/Signup/components/PhoneValidate";
-import SetAccount from "./Pages/Signup/components/SetAccount";
-import Subscribe from "./Pages/Subscribe/Subscribe";
-import Payments from "./Pages/Subscribe/Payments";
-import Category from "./Pages/Category/Category";
-import MyBooks from "./Pages/MyBooks/MyBooks";
-import MyBooksManager from "./Pages/MyBooksManager/MyBooksManager";
-import BookDetails from "./Pages/BookDetails/BookDetails";
-import SearchDefault from "./Pages/Search/SearchDefault";
-import SearchResult from "./Pages/Search/SearchResult";
+import {
+  BookDetails,
+  SearchDefault,
+  SearchResult,
+  MyBooksManager,
+  MyBooks,
+  Category,
+  Payments,
+  Subscribe,
+  SetAccount,
+  PhoneValidate,
+  Signup,
+  Login,
+  WellieMain,
+} from "./Pages";
 
 class Routes extends React.Component {
   render() {

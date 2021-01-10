@@ -1,0 +1,13 @@
+export { default as BookDetails } from "./BookDetails/BookDetails";
+export { default as SearchDefault } from "./Search/SearchDefault";
+export { default as SearchResult } from "./Search/SearchResult";
+export { default as MyBooksManager } from "./MyBooksManager/MyBooksManager";
+export { default as MyBooks } from "./MyBooks/MyBooks";
+export { default as Category } from "./Category/Category";
+export { default as Payments } from "./Subscribe/Payments";
+export { default as Subscribe } from "./Subscribe/Subscribe";
+export { default as SetAccount } from "./Signup/components/SetAccount";
+export { default as PhoneValidate } from "./Signup/components/PhoneValidate";
+export { default as Signup } from "./Signup/Signup";
+export { default as Login } from "./Login/Login";
+export { default as WellieMain } from "./WellieMain/WellieMain";
